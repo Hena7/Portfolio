@@ -60,7 +60,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-medium">Email</h3>
-                <p className="text-foreground/60">henockmekonnen105@gmail.com</p>
+                <p className="text-foreground/60 break-all">henockmekonnen105@gmail.com</p>
               </div>
             </motion.a>
 

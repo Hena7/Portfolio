@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { Container, Engine } from "@tsparticles/engine";
@@ -12,8 +12,6 @@ import { FiDownload, FiArrowRight } from "react-icons/fi";
 export default function Hero() {
   const [init, setInit] = useState(false);
   const { theme } = useTheme();
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
 
   useEffect(() => {
     initParticlesEngine(async (engine: Engine) => {
@@ -21,25 +19,17 @@ export default function Hero() {
     }).then(() => {
       setInit(true);
     });
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, []);
 
   const particlesLoaded = async (container?: Container) => {
     console.log(container);
   };
 
-  const x = useTransform(mouseX, [0, typeof window !== 'undefined' ? window.innerWidth : 1000], [-20, 20]);
-  const y = useTransform(mouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1000], [-20, 20]);
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-0">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-0"
+    >
       {init && (
         <Particles
           id="tsparticles"
@@ -117,10 +107,7 @@ export default function Hero() {
       )}
 
       <div className="container mx-auto px-6 relative z-10 text-center">
-        <motion.div
-          style={{ x, y }}
-          className="space-y-6"
-        >
+        <motion.div className="space-y-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -154,7 +141,8 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="max-w-2xl mx-auto text-lg text-foreground/60 leading-relaxed"
           >
-            Passionate about building modern web applications, solving real-world problems, and creating meaningful digital experiences.
+            Passionate about building modern web applications, solving
+            real-world problems, and creating meaningful digital experiences.
           </motion.p>
 
           <motion.div
@@ -170,7 +158,7 @@ export default function Hero() {
               View Projects
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            
+
             <a
               href="/cv.pdf" // Placeholder for CV
               className="px-8 py-4 rounded-full border border-primary/20 hover:bg-primary/5 transition-colors font-medium flex items-center gap-2"
@@ -184,7 +172,10 @@ export default function Hero() {
 
       {/* Decorative Gradients */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDelay: "1s" }} />
+      <div
+        className="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl -z-10 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      />
     </section>
   );
 }
