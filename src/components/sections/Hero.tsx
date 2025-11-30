@@ -160,7 +160,7 @@ export default function Hero() {
             </Link>
 
             <a
-              href="/cv.pdf" // Placeholder for CV
+              href="/Henok CV.pdf"
               className="px-8 py-4 rounded-full border border-primary/20 hover:bg-primary/5 transition-colors font-medium flex items-center gap-2"
             >
               Download CV

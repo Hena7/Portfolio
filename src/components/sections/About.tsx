@@ -20,10 +20,11 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 group-hover:opacity-10 transition-opacity duration-500" />
             {/* Placeholder for Profile Image */}
             <div className="w-full h-full bg-dark-navy flex items-center justify-center text-primary/50">
-              <FiUser className="w-32 h-32" />
+              <img src="/heni.JPG" />
+              {/* <FiUser className="w-32 h-32" /> */}
             </div>
           </div>
-          
+
           {/* Decorative Elements */}
           <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-full blur-2xl -z-10" />
           <div className="absolute -top-6 -left-6 w-48 h-48 bg-secondary/10 rounded-full blur-2xl -z-10" />
@@ -48,10 +49,17 @@ export default function About() {
             className="space-y-4 text-lg text-foreground/80"
           >
             <p>
-              I am a dedicated and motivated <span className="text-primary font-medium">Software Engineering student</span> at Mekelle University, Arid Campus, Ethiopia.
+              I am a dedicated and motivated{" "}
+              <span className="text-primary font-medium">
+                Software Engineering student
+              </span>{" "}
+              at Mekelle University, Arid Campus, Ethiopia.
             </p>
             <p>
-              With a strong passion for technology and innovation, I focus on solving real-world problems through code. I am constantly looking for opportunities to learn, collaborate in teams, and deliver impactful projects.
+              With a strong passion for technology and innovation, I focus on
+              solving real-world problems through code. I am constantly looking
+              for opportunities to learn, collaborate in teams, and deliver
+              impactful projects.
             </p>
           </motion.div>
 
@@ -67,7 +75,9 @@ export default function About() {
                 <FiCode className="text-primary w-6 h-6" />
                 <h3 className="font-semibold">Frontend</h3>
               </div>
-              <p className="text-sm text-foreground/60">React.js, Next.js, TailwindCSS</p>
+              <p className="text-sm text-foreground/60">
+                React.js, Next.js, TailwindCSS
+              </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-secondary/30 transition-colors">
@@ -75,7 +85,9 @@ export default function About() {
                 <FiServer className="text-secondary w-6 h-6" />
                 <h3 className="font-semibold">Backend</h3>
               </div>
-              <p className="text-sm text-foreground/60">Node.js, MongoDB, SQL, PostgreSQL</p>
+              <p className="text-sm text-foreground/60">
+                Node.js, MongoDB, SQL, PostgreSQL
+              </p>
             </div>
           </motion.div>
         </div>
