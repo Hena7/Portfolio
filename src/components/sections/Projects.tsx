@@ -8,7 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const projects = [
   {
     title: "Maedot Consulting",
-    description: "A comprehensive construction consulting management app that organizes clients, projects, and analytics dashboards. Includes robust admin features for efficient management.",
+    description:
+      "A comprehensive construction consulting management app that organizes clients, projects, and analytics dashboards. Includes robust admin features for efficient management.",
     tags: ["React", "Node.js", "MongoDB", "Express"],
     category: "Full-Stack",
     demoLink: "#",
@@ -16,7 +17,8 @@ const projects = [
   },
   {
     title: "Yzezun Delivery System",
-    description: "A food delivery platform featuring admin and customer dashboards, real-time order tracking, and efficient delivery management systems.",
+    description:
+      "A food delivery platform featuring admin and customer dashboards, real-time order tracking, and efficient delivery management systems.",
     tags: ["Next.js", "TailwindCSS", "Firebase", "Google Maps API"],
     category: "Full-Stack",
     demoLink: "#",
@@ -24,11 +26,12 @@ const projects = [
   },
   {
     title: "PlayStation Tournament App",
-    description: "Competitive gaming platform using Swiss-system pairing. Features random pairing, ranking system, live leaderboard, and detailed player dashboards.",
+    description:
+      "Competitive gaming platform using Swiss-system pairing. Features random pairing, ranking system, live leaderboard, and detailed player dashboards.",
     tags: ["React", "Redux", "Node.js", "Socket.io"],
     category: "Full-Stack",
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/Hena7/PlayStation-Tournament-App",
   },
 ];
 
@@ -37,15 +40,16 @@ const categories = ["All", "Full-Stack", "Frontend", "Backend"];
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredProjects = activeCategory === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
     <SectionWrapper id="projects" className="bg-secondary/5">
       <div className="space-y-12">
         <div className="text-center space-y-4">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -53,19 +57,20 @@ export default function Projects() {
           >
             Featured <span className="text-gradient">Projects</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-foreground/60 max-w-2xl mx-auto"
           >
-            A selection of projects that demonstrate my ability to solve complex problems.
+            A selection of projects that demonstrate my ability to solve complex
+            problems.
           </motion.p>
         </div>
 
         {/* Category Filter */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -88,16 +93,13 @@ export default function Projects() {
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div 
+        <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
-              <ProjectCard 
-                key={project.title}
-                {...project}
-              />
+              <ProjectCard key={project.title} {...project} />
             ))}
           </AnimatePresence>
         </motion.div>

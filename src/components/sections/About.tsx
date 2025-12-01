@@ -19,7 +19,7 @@ export default function About() {
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20 group-hover:opacity-10 transition-opacity duration-500" />
             {/* Placeholder for Profile Image */}
-            <div className="w-full h-full bg-dark-navy flex items-center justify-center text-primary/50">
+            <div className="w-full h-full flex items-center justify-center text-primary/50">
               <img src="/heni.JPG" />
               {/* <FiUser className="w-32 h-32" /> */}
             </div>
