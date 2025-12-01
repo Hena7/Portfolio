@@ -7,13 +7,22 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   {
+    title: "PlayStation Tournament App",
+    description:
+      "Competitive gaming platform using Swiss-system pairing. Features random pairing, ranking system, live leaderboard, and detailed player dashboards.",
+    tags: ["React", "TailwindCSS", "Prisma", "Node.js", "Socket.io"],
+    category: "Full-Stack",
+    demoLink: "https://bekisha.vercel.app",
+    githubLink: "https://github.com/Hena7/PlayStation-Tournament-App",
+  },
+  {
     title: "Maedot Consulting",
     description:
       "A comprehensive construction consulting management app that organizes clients, projects, and analytics dashboards. Includes robust admin features for efficient management.",
     tags: ["React", "Node.js", "MongoDB", "Express"],
     category: "Full-Stack",
-    demoLink: "#",
-    githubLink: "#",
+    demoLink: "https://maedot-consultant.vercel.app",
+    githubLink: "https://github.com/Hena7/Maedot-Consulting",
   },
   {
     title: "Yzezun Delivery System",
@@ -21,17 +30,35 @@ const projects = [
       "A food delivery platform featuring admin and customer dashboards, real-time order tracking, and efficient delivery management systems.",
     tags: ["Next.js", "TailwindCSS", "Firebase", "Google Maps API"],
     category: "Full-Stack",
-    demoLink: "#",
-    githubLink: "#",
+    demoLink: "https://yzezun.vercel.app",
+    githubLink: "https://github.com/Hena7/Yzezun-delivery",
   },
   {
-    title: "PlayStation Tournament App",
+    title: "EasyRentX",
     description:
-      "Competitive gaming platform using Swiss-system pairing. Features random pairing, ranking system, live leaderboard, and detailed player dashboards.",
-    tags: ["React", "Redux", "Node.js", "Socket.io"],
+      "A modern car rental application with advanced search, booking management, and user-friendly interface for seamless vehicle rental experiences.",
+    tags: ["React", "TypeScript", "TailwindCSS", "Prisma"],
     category: "Full-Stack",
-    demoLink: "#",
-    githubLink: "https://github.com/Hena7/PlayStation-Tournament-App",
+    demoLink: "https://easy-rent-h.vercel.app",
+    githubLink: "https://github.com/Hena7/EasyRentX",
+  },
+  {
+    title: "Lena Garment Store",
+    description:
+      "An elegant e-commerce platform for luxury fashion items featuring a modern shopping experience, product catalog, and streamlined checkout process.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "Stripe"],
+    category: "Full-Stack",
+    demoLink: "https://lena-luxe-wear.vercel.app",
+    githubLink: "https://github.com/Hena7/Lena-garment-store",
+  },
+  {
+    title: "Property Rental Platform",
+    description:
+      "A Next.js-powered rental platform with comprehensive property listings, booking system, and intuitive user experience for property rentals.",
+    tags: ["Next.js", "React", "TailwindCSS", "MongoDB"],
+    category: "Full-Stack",
+    demoLink: "https://easy-rent-x.vercel.app",
+    githubLink: "https://github.com/Hena7/EasyRent",
   },
 ];
 
