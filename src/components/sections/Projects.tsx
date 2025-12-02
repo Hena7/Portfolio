@@ -14,6 +14,8 @@ const projects = [
     category: "Full-Stack",
     demoLink: "https://bekisha.vercel.app",
     githubLink: "https://github.com/Hena7/PlayStation-Tournament-App",
+    image:
+      "https://api.microlink.io/?url=https://bekisha.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
   {
     title: "Maedot Consulting",
@@ -23,6 +25,8 @@ const projects = [
     category: "Full-Stack",
     demoLink: "https://maedot-consultant.vercel.app",
     githubLink: "https://github.com/Hena7/Maedot-Consulting",
+    image:
+      "https://api.microlink.io/?url=https://maedot-consultant.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
   {
     title: "Yzezun Delivery System",
@@ -32,6 +36,8 @@ const projects = [
     category: "Full-Stack",
     demoLink: "https://yzezun.vercel.app",
     githubLink: "https://github.com/Hena7/Yzezun-delivery",
+    image:
+      "https://api.microlink.io/?url=https://yzezun.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
   {
     title: "EasyRentX",
@@ -41,6 +47,8 @@ const projects = [
     category: "Full-Stack",
     demoLink: "https://easy-rent-h.vercel.app",
     githubLink: "https://github.com/Hena7/EasyRentX",
+    image:
+      "https://api.microlink.io/?url=https://easy-rent-h.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
   {
     title: "Lena Garment Store",
@@ -50,6 +58,8 @@ const projects = [
     category: "Full-Stack",
     demoLink: "https://lena-luxe-wear.vercel.app",
     githubLink: "https://github.com/Hena7/Lena-garment-store",
+    image:
+      "https://api.microlink.io/?url=https://lena-luxe-wear.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
   {
     title: "Property Rental Platform",
@@ -59,6 +69,8 @@ const projects = [
     category: "Full-Stack",
     demoLink: "https://easy-rent-x.vercel.app",
     githubLink: "https://github.com/Hena7/EasyRent",
+    image:
+      "https://api.microlink.io/?url=https://easy-rent-x.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
 ];
 
