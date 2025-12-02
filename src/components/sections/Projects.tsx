@@ -51,6 +51,17 @@ const projects = [
       "https://api.microlink.io/?url=https://easy-rent-h.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
   {
+    title: "HeniChat",
+    description:
+      "A modern real-time chat application built with Next.js, Zustand, and Firebase. Features clean UI, responsive design, chat lists, message bubbles, and real-time syncing. Designed to showcase UI architecture and dynamic state management.",
+    tags: ["Next.js", "TailwindCSS", "ShadCN UI", "Firebase", "Zustand"],
+    category: "Frontend",
+    demoLink: "https://heni-chat-h.vercel.app",
+    githubLink: "https://github.com/Hena7/HeniChat",
+    image:
+      "https://api.microlink.io/?url=https://heni-chat-h.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
+  },
+  {
     title: "Lena Garment Store",
     description:
       "An elegant e-commerce platform for luxury fashion items featuring a modern shopping experience, product catalog, and streamlined checkout process.",
