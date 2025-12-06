@@ -3,8 +3,8 @@
 :root {
   /* Custom Colors */
   --indigo-blue: #4c6fff;
-  --electric-violet: #7b61ff;
-  --neon-turquoise: #5afefe;
+  --coral-flame: #a3ff4c85;
+  --neon-turquoise: #0ca5a5;
   --dark-navy: #0d1117;
   --white: #ffffff;
 
@@ -13,7 +13,7 @@
   --foreground: #0d1117;
 
   --primary: var(--indigo-blue);
-  --secondary: var(--electric-violet);
+  --secondary: var(--coral-flame);
   --accent: var(--neon-turquoise);
 }
 
@@ -28,7 +28,7 @@
   --color-foreground: var(--foreground);
 
   --color-indigo-blue: var(--indigo-blue);
-  --color-electric-violet: var(--electric-violet);
+  --color-coral-flame: var(--coral-flame);
   --color-neon-turquoise: var(--neon-turquoise);
   --color-dark-navy: var(--dark-navy);
 
@@ -61,7 +61,7 @@
     background-image: linear-gradient(
       to right,
       var(--indigo-blue),
-      var(--electric-violet)
+      var(--coral-flame)
     );
   }
 
@@ -72,7 +72,7 @@
     background-image: linear-gradient(
       to right,
       var(--neon-turquoise),
-      var(--electric-violet)
+      var(--coral-flame)
     );
   }
 }
