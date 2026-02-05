@@ -4,7 +4,15 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import { FiMail, FiPhone, FiGithub, FiLinkedin, FiSend } from "react-icons/fi";
+import {
+  FiMail,
+  FiPhone,
+  FiGithub,
+  FiLinkedin,
+  FiSend,
+  FiTwitter,
+} from "react-icons/fi";
+import { FaTelegram } from "react-icons/fa";
 
 type FormData = {
   name: string;
@@ -13,14 +21,19 @@ type FormData = {
 };
 
 export default function Contact() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     console.log(data);
     setIsSubmitting(false);
     setIsSuccess(true);
@@ -42,7 +55,9 @@ export default function Contact() {
               Let's <span className="text-gradient">Connect</span>
             </h2>
             <p className="text-foreground/60 text-lg">
-              I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              I'm currently looking for new opportunities. Whether you have a
+              question or just want to say hi, I'll try my best to get back to
+              you!
             </p>
           </motion.div>
 
@@ -60,7 +75,9 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-medium">Email</h3>
-                <p className="text-foreground/60 break-all">henockmekonnen105@gmail.com</p>
+                <p className="text-foreground/60 break-all">
+                  henockmekonnen105@gmail.com
+                </p>
               </div>
             </motion.a>
 
@@ -95,7 +112,7 @@ export default function Contact() {
                 <FiGithub className="w-6 h-6" />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/henicodes"
+                href="https://www.linkedin.com/in/henok-mekonnen-734731362"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0 }}
@@ -105,6 +122,18 @@ export default function Contact() {
                 className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
               >
                 <FiLinkedin className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                href="https://t.me/hena2129"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+              >
+                <FaTelegram className="w-6 h-6" />
               </motion.a>
             </div>
           </div>
@@ -119,40 +148,61 @@ export default function Contact() {
         >
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+              <label htmlFor="name" className="block text-sm font-medium mb-2">
+                Name
+              </label>
               <input
                 {...register("name", { required: "Name is required" })}
                 className="w-full px-4 py-3 rounded-lg bg-background/50 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
                 placeholder="Your Name"
               />
-              {errors.name && <span className="text-red-500 text-sm mt-1">{errors.name.message}</span>}
+              {errors.name && (
+                <span className="text-red-500 text-sm mt-1">
+                  {errors.name.message}
+                </span>
+              )}
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+              <label htmlFor="email" className="block text-sm font-medium mb-2">
+                Email
+              </label>
               <input
-                {...register("email", { 
+                {...register("email", {
                   required: "Email is required",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid email address"
-                  }
+                    message: "Invalid email address",
+                  },
                 })}
                 className="w-full px-4 py-3 rounded-lg bg-background/50 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
                 placeholder="your@email.com"
               />
-              {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email.message}</span>}
+              {errors.email && (
+                <span className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </span>
+              )}
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-2"
+              >
+                Message
+              </label>
               <textarea
                 {...register("message", { required: "Message is required" })}
                 rows={4}
                 className="w-full px-4 py-3 rounded-lg bg-background/50 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"
                 placeholder="Your message..."
               />
-              {errors.message && <span className="text-red-500 text-sm mt-1">{errors.message.message}</span>}
+              {errors.message && (
+                <span className="text-red-500 text-sm mt-1">
+                  {errors.message.message}
+                </span>
+              )}
             </div>
 
             <button
