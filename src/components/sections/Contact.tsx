@@ -33,10 +33,6 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Replace 'YOUR_FORM_ID' with your actual Formspree Form ID
-      // 1. Go to https://formspree.io/
-      // 2. Create a new form
-      // 3. Copy the Form ID (it looks like "xmqzlbvp")
       const response = await fetch("https://formspree.io/f/xkovwvza", {
         method: "POST",
         headers: {
