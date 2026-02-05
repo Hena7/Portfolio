@@ -160,7 +160,7 @@ export default function Hero() {
             </Link>
 
             <a
-              href="/Henok CV.pdf"
+              href="/Henok_Mekonnen_Fullstack_Resume.pdf"
               className="px-8 py-4 rounded-full border border-primary/20 hover:bg-primary/5 transition-colors font-medium flex items-center gap-2"
             >
               Download CV
