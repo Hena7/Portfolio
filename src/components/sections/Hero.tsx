@@ -65,10 +65,10 @@ export default function Hero() {
             },
             particles: {
               color: {
-                value: theme === "dark" ? "#5afefe" : "#4c6fff",
+                value: theme === "dark" ? "#FFD080" : "#F5A623",
               },
               links: {
-                color: theme === "dark" ? "#5afefe" : "#4c6fff",
+                color: theme === "dark" ? "#FFD080" : "#F5A623",
                 distance: 150,
                 enable: true,
                 opacity: 0.3,
