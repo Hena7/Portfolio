@@ -12,47 +12,32 @@ import {
 import { VscCode } from "react-icons/vsc";
 
 const skills = [
-  {
-    category: "Programming Languages",
-    items: [
-      { name: "HTML", icon: <SiHtml5 />, color: "#E34F26" },
-      { name: "CSS", icon: <SiCss3 />, color: "#1572B6" },
-      { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
-      { name: "TypeScript", icon: <SiTypescript />, color: "#3178C6" },
-    ]
-  },
-  {
-    category: "Frameworks & Libraries",
-    items: [
-      { name: "React.js", icon: <SiReact />, color: "#61DAFB" },
-      { name: "Next.js", icon: <SiNextdotjs />, color: "#000000" },
-      { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
-      { name: "TailwindCSS", icon: <SiTailwindcss />, color: "#06B6D4" },
-    ]
-  },
-  {
-    category: "Databases",
-    items: [
-      { name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
-      { name: "SQL", icon: <SiMysql />, color: "#4479A1" }, // Using MySQL icon for generic SQL
-      { name: "PostgreSQL", icon: <SiPostgresql />, color: "#4169E1" },
-    ]
-  },
-  {
-    category: "Other Skills",
-    items: [
-      { name: "Git", icon: <SiGit />, color: "#F05032" },
-      { name: "GitHub", icon: <SiGithub />, color: "#181717" },
-      { name: "IDEs", icon: <VscCode />, color: "#007ACC" },
-      { name: "Package Managers", icon: <SiNpm />, color: "#CB3837" },
-    ]
-  }
+  { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26" },
+  { name: "CSS3", icon: <SiCss3 />, color: "#1572B6" },
+  { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
+  { name: "TypeScript", icon: <SiTypescript />, color: "#3178C6" },
+  { name: "React.js", icon: <SiReact />, color: "#61DAFB" },
+  { name: "Next.js", icon: <SiNextdotjs />, color: "#000000" },
+  { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
+  { name: "TailwindCSS", icon: <SiTailwindcss />, color: "#06B6D4" },
+  { name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
+  { name: "SQL", icon: <SiMysql />, color: "#4479A1" },
+  { name: "PostgreSQL", icon: <SiPostgresql />, color: "#4169E1" },
+  { name: "Git", icon: <SiGit />, color: "#F05032" },
+  { name: "GitHub", icon: <SiGithub />, color: "#181717" },
+  { name: "VS Code", icon: <VscCode />, color: "#007ACC" },
+  { name: "NPM", icon: <SiNpm />, color: "#CB3837" },
 ];
 
 export default function Skills() {
+  // Split skills into two rows for the marquee
+  const half = Math.ceil(skills.length / 2);
+  const row1 = skills.slice(0, half);
+  const row2 = skills.slice(half);
+
   return (
-    <SectionWrapper id="skills">
-      <div className="space-y-12">
+    <SectionWrapper id="skills" className="overflow-hidden">
+      <div className="space-y-16">
         <div className="text-center space-y-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +45,7 @@ export default function Skills() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold"
           >
-            My <span className="text-gradient">Skills</span>
+            What I <span className="text-gradient">Work With</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -69,33 +54,34 @@ export default function Skills() {
             transition={{ delay: 0.2 }}
             className="text-foreground/60 max-w-2xl mx-auto"
           >
-            A showcase of the technologies and tools I use to build digital products.
+            The technologies, frameworks, and tools I use to bring ideas to life.
           </motion.p>
         </div>
 
-        <div className="grid gap-12">
-          {skills.map((category, catIndex) => (
-            <div key={category.category} className="space-y-6">
-              <motion.h3 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="text-xl font-semibold border-l-4 border-primary pl-4"
-              >
-                {category.category}
-              </motion.h3>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {category.items.map((skill, index) => (
-                  <SkillCard 
-                    key={skill.name}
-                    {...skill}
-                    index={index + (catIndex * 4)}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="relative flex flex-col gap-6 w-full max-w-[100vw]">
+          {/* Subtle fade edges for the marquee */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+          {/* Marquee Row 1 */}
+          <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] gap-6 pl-6">
+            {[...row1, ...row1, ...row1].map((skill, index) => (
+              <SkillCard 
+                key={`row1-${skill.name}-${index}`}
+                {...skill}
+              />
+            ))}
+          </div>
+
+          {/* Marquee Row 2 */}
+          <div className="flex w-fit animate-marquee-reverse hover:[animation-play-state:paused] gap-6 pl-6">
+            {[...row2, ...row2, ...row2].map((skill, index) => (
+              <SkillCard 
+                key={`row2-${skill.name}-${index}`}
+                {...skill}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </SectionWrapper>

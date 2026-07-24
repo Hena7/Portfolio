@@ -4,7 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import LoadingScreen from "@/components/layout/LoadingScreen";
-import ParticleCursor from "@/components/effects/ParticleCursor";
+import ParticleBackground from "@/components/effects/ParticleBackground";
+import ScrollProgress from "@/components/effects/ScrollProgress";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <LoadingScreen />
-          <ParticleCursor />
+          <ScrollProgress />
+          <ParticleBackground />
           <Navbar />
           <main className="min-h-screen pt-20">
             {children}
