@@ -3,6 +3,8 @@
 import { useState } from "react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard from "@/components/ui/ProjectCard";
+import TextReveal from "@/components/effects/TextReveal";
+import StaggerReveal from "@/components/effects/StaggerReveal";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -100,18 +102,29 @@ export default function Projects() {
       <div className="space-y-12">
         <div className="text-center space-y-4">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold"
           >
-            Featured <span className="text-gradient">Projects</span>
+            <TextReveal staggerDelay={0.08} blur delay={0.1}>
+              Featured
+            </TextReveal>{" "}
+            <motion.span
+              initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+              className="text-gradient inline-block"
+            >
+              Projects
+            </motion.span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.4, duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
             className="text-foreground/60 max-w-2xl mx-auto"
           >
             A selection of projects that demonstrate my ability to solve complex
@@ -119,37 +132,57 @@ export default function Projects() {
           </motion.p>
         </div>
 
-        {/* Category Filter */}
+        {/* Category Filter with animated indicator */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
           className="flex flex-wrap justify-center gap-4"
         >
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`relative px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? "bg-primary text-white shadow-lg shadow-primary/25 scale-105"
+                  ? "text-white scale-105"
                   : "bg-white/5 hover:bg-white/10 text-foreground/60 hover:text-foreground"
               }`}
             >
-              {category}
+              {activeCategory === category && (
+                <motion.div
+                  layoutId="activeCategory"
+                  className="absolute inset-0 bg-primary rounded-full shadow-lg shadow-primary/25"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{category}</span>
             </button>
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid with Stagger */}
         <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: [0.25, 0.4, 0.25, 1],
+                }}
+              >
+                <ProjectCard {...project} />
+              </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>

@@ -60,15 +60,23 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
-        scrolled ? "glass py-4 shadow-lg" : "py-6 bg-transparent"
+        "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
+        scrolled
+          ? "py-3 bg-background/70 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-lg shadow-black/5"
+          : "py-6 bg-transparent"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href="#home" className="text-2xl font-bold font-mono">
-          <span className="text-primary">H</span>M
+          <motion.span
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="inline-block"
+          >
+            <span className="text-primary">H</span>M
+          </motion.span>
         </Link>
 
         {/* Desktop Menu */}
@@ -80,28 +88,31 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors relative group",
+                  "text-sm font-medium transition-colors relative py-1",
                   isActive ? "text-primary" : "text-foreground hover:text-primary"
                 )}
               >
                 {link.name}
-                <span 
-                  className={cn(
-                    "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  )} 
-                />
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </Link>
             );
           })}
           
-          <button
+          <motion.button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="p-2 rounded-full hover:bg-primary/10 transition-colors"
             aria-label="Toggle Theme"
+            whileHover={{ rotate: 180 }}
+            transition={{ duration: 0.4 }}
           >
             {theme === "dark" ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -130,23 +141,30 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-white/10"
+            transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+            className="md:hidden bg-background/90 backdrop-blur-xl border-t border-black/5 dark:border-white/5"
           >
             <div className="flex flex-col items-center py-8 space-y-6">
-              {navLinks.map((link) => {
+              {navLinks.map((link, index) => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
-                  <Link
+                  <motion.div
                     key={link.name}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "text-lg font-medium transition-colors",
-                      isActive ? "text-primary" : "text-foreground hover:text-primary"
-                    )}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.3 }}
                   >
-                    {link.name}
-                  </Link>
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "text-lg font-medium transition-colors",
+                        isActive ? "text-primary" : "text-foreground hover:text-primary"
+                      )}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 );
               })}
             </div>

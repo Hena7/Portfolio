@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import LoadingScreen from "@/components/layout/LoadingScreen";
 import ParticleBackground from "@/components/effects/ParticleBackground";
 import ScrollProgress from "@/components/effects/ScrollProgress";
+import FloatingBackToTop from "@/components/effects/FloatingBackToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
           <ScrollProgress />
           <ParticleBackground />
           <Navbar />
+          <FloatingBackToTop />
           <main className="min-h-screen pt-20">
             {children}
           </main>
@@ -41,3 +43,4 @@ export default function RootLayout({
     </html>
   );
 }
+

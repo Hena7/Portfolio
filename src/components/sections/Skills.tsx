@@ -2,6 +2,7 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SkillCard from "@/components/ui/SkillCard";
+import TextReveal from "@/components/effects/TextReveal";
 import { motion } from "framer-motion";
 import { 
   SiHtml5, SiCss3, SiJavascript, SiTypescript, 
@@ -39,26 +40,43 @@ export default function Skills() {
     <SectionWrapper id="skills" className="overflow-hidden">
       <div className="space-y-16">
         <div className="text-center space-y-4">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold"
           >
-            What I <span className="text-gradient">Work With</span>
+            <TextReveal staggerDelay={0.08} blur delay={0.1}>
+              What I
+            </TextReveal>{" "}
+            <motion.span
+              initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+              className="text-gradient inline-block"
+            >
+              Work With
+            </motion.span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.4, duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
             className="text-foreground/60 max-w-2xl mx-auto"
           >
             The technologies, frameworks, and tools I use to bring ideas to life.
           </motion.p>
         </div>
 
-        <div className="relative flex flex-col gap-6 w-full max-w-[100vw]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative flex flex-col gap-6 w-full max-w-[100vw]"
+        >
           {/* Subtle fade edges for the marquee */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
@@ -82,7 +100,7 @@ export default function Skills() {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </SectionWrapper>
   );
