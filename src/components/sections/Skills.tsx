@@ -77,9 +77,6 @@ export default function Skills() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative flex flex-col gap-6 w-full max-w-[100vw]"
         >
-          {/* Subtle fade edges for the marquee */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
           {/* Marquee Row 1 */}
           <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] gap-6 pl-6">
